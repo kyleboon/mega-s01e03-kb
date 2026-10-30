@@ -1,0 +1,60 @@
+---
+layout: runbook
+title: '#4471 · three problems, not one'
+owner: support desk
+status: draft
+reviewed: 2026-10-29
+signature: v1.eyJzdWIiOiI2MjE2IiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMzMjkwMzAsImV4cCI6MTc5MzQxNTQzMH0.NV1FvQs65sykd5oLJiHb2Mz8BbuUsULplWGd7Z0HFj4
+---
+
+<script>
+  import ProblemTable from '#lib/kb/ProblemTable.svelte';
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+
+  const repo = 'https://github.com/kyleboon/mega-s01e03-kb/issues';
+  const tickets = { parser: `${repo}/1`, hint: `${repo}/2`, 'one-day': `${repo}/3` };
+</script>
+
+[#4471](/kb/incidents/4471) was merged on subject line ([decision 0001](/kb/decisions/0001-dedupe-by-subject))
+and marked known with one fix queued. Its reports hold three problems. The queued parser fix
+closes only the first; the other two keep coming in after it ships.
+
+<Callout kind="warn">
+Not one issue. Each problem below has its own ticket. Every count on this page is computed from
+the export at render time.
+</Callout>
+
+## The split
+
+<ProblemTable ticket={4471} {tickets} />
+
+## How a report is placed
+
+1. **One id, one report.** The export repeats some rows; they are counted once.
+2. **One-day move.** A report the desk read as a one-day move (`desk-notes.json`) is not a flip:
+   the day and the month stay where they are and the date shifts by a day, or the same meeting
+   lands on different days for people in different places. That points at time zones, not at
+   the parser.
+3. **hint.** A report that came in through the booking form of a tenant on `booking-v3`. That form
+   prints `MM/DD/YYYY` under its date field and reads the date day first. People type what the
+   hint says, so their dates come out flipped even with a fixed parser.
+4. **parser.** Every other report: a day-first tenant whose date the shared parser read month first.
+
+The intake tag is not used. It is a guess from the reporter's browser, and it disagrees with the
+tenant for the count shown under the table.
+
+## Against the incident page
+
+The incident page files the one-day moves under `parser` and shows `hint` with no ticket:
+
+<CauseTable ticket={4471} />
+
+## What to do with it
+
+- <a href={tickets.parser}>parser</a>: the queued fix. Count it against the parser row only.
+- <a href={tickets.hint}>hint</a>: change the hint on <code>booking-v3</code>, or make the form read what its hint says.
+- <a href={tickets['one-day']}>one-day</a>: check how invite times convert between time zones and around daylight-saving changes.
+
+<RenderStamp {signature} />
