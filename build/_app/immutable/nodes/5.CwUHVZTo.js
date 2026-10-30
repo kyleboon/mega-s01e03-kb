@@ -1,0 +1,1 @@
+export{n as component}from"../chunks/BVOQ1-Uy.js";

@@ -9,11 +9,11 @@
 		<link href="../../../../_app/immutable/chunks/fKHP3NMy.js" rel="modulepreload">
 		<link href="../../../../_app/immutable/chunks/CffaylxA.js" rel="modulepreload">
 		<link href="../../../../_app/immutable/chunks/BRuYPksh.js" rel="modulepreload">
-		<link href="../../../../_app/immutable/entry/app.8Aew757e.js" rel="modulepreload">
+		<link href="../../../../_app/immutable/entry/app.BseW8cCH.js" rel="modulepreload">
 		<link href="../../../../_app/immutable/nodes/0.FANFEiZ9.js" rel="modulepreload">
 		<link href="../../../../_app/immutable/chunks/DK3Fl9T5.js" rel="modulepreload">
-		<link href="../../../../_app/immutable/nodes/5.CplhTcM2.js" rel="modulepreload">
-		<link href="../../../../_app/immutable/chunks/2EamZ8CN.js" rel="modulepreload">
+		<link href="../../../../_app/immutable/nodes/5.CwUHVZTo.js" rel="modulepreload">
+		<link href="../../../../_app/immutable/chunks/BVOQ1-Uy.js" rel="modulepreload">
 		<link href="../../../../_app/immutable/chunks/O6etzGzx.js" rel="modulepreload">
 		<link href="../../../../_app/immutable/chunks/Cp_bFJ0i.js" rel="modulepreload">
 		<link href="../../../../_app/immutable/chunks/BYKfnpVm.js" rel="modulepreload">
@@ -34,21 +34,21 @@ the parser. It has its own ticket, and stays counted under the cause its tenant 
 the desk counts.</li> <li><strong>hint.</strong> A report that came in through the booking form of a tenant on <code>booking-v3</code>. That form
 prints <code>MM/DD/YYYY</code> under its date field and reads the date day first. People type what the
 hint says, so their dates come out flipped even with a fixed parser.</li> <li><strong>parser.</strong> Every other report from a day-first tenant (the one-day moves included): a date the shared parser read month first.</li></ol> <p>The intake tag is not used. It is a guess from the reporter’s browser, and it disagrees with the
-tenant for the count shown under the table.</p> <h2>Against the incident page</h2> <p>The incident page has the same counts, but shows <code>hint</code> and the one-day moves with no ticket:</p> <p class="sum svelte-12oyimm"><strong>412</strong> reports merged into #4471 · <strong>2</strong> causes</p> <table><thead><tr><th>cause</th><th>reports</th><th>tagged as</th><th>tenants</th><th>seen</th><th></th></tr></thead><tbody><!--[--><tr class="svelte-12oyimm"><td class="svelte-12oyimm"><code>parser</code></td><td class="svelte-12oyimm">379</td><td class="tags svelte-12oyimm">parser ×356 · hint ×23</td><td class="svelte-12oyimm">11</td><td class="svelte-12oyimm">2026-04-01 → 2026-10-04</td><td class="svelte-12oyimm">#4471</td></tr><tr class="svelte-12oyimm wrong"><td class="svelte-12oyimm"><code>hint</code></td><td class="svelte-12oyimm">33</td><td class="tags svelte-12oyimm">hint ×18 · parser ×15</td><td class="svelte-12oyimm">3</td><td class="svelte-12oyimm">2026-04-17 → 2026-09-22</td><td class="svelte-12oyimm">not this ticket — no ticket of its own</td></tr><!--]--></tbody></table> <!--[--><!--[0--><p class="note svelte-12oyimm">5 reports read as a one-day move; filed under <code>parser</code> by tenant.</p><!--]--><!--[-1--><!--]--><!--]--><!----> <h2>Where each ticket stands</h2> <p>Engineering closed #4471 on 5 October 2026.</p> <ul><li><a href="https://github.com/kyleboon/mega-s01e03-kb/issues/1">parser</a>: **fixed**, <code>fix(dates): parse dd/mm for eu locales</code>. Closed.</li> <li><a href="https://github.com/kyleboon/mega-s01e03-kb/issues/2">hint</a>: **won't fix**, the <code>booking-v3</code> form is retired. Closed.</li> <li><a href="https://github.com/kyleboon/mega-s01e03-kb/issues/3">one-day</a>: **open**. Neither change touches how invite times convert between time zones
+tenant for the count shown under the table.</p> <h2>Against the incident page</h2> <p>The incident page has the same counts, but shows <code>hint</code> and the one-day moves with no ticket:</p> <p class="sum svelte-12oyimm"><strong>412</strong> reports merged into #4471 · <strong>2</strong> causes</p> <table><thead><tr><th>cause</th><th>reports</th><th>tagged as</th><th>tenants</th><th>seen</th><th></th></tr></thead><tbody><!--[--><tr class="svelte-12oyimm"><td class="svelte-12oyimm"><code>parser</code></td><td class="svelte-12oyimm">379</td><td class="tags svelte-12oyimm">parser ×356 · hint ×23</td><td class="svelte-12oyimm">11</td><td class="svelte-12oyimm">2026-04-01 → 2026-10-04</td><td class="svelte-12oyimm">#4471</td></tr><tr class="svelte-12oyimm wrong"><td class="svelte-12oyimm"><code>hint</code></td><td class="svelte-12oyimm">33</td><td class="tags svelte-12oyimm">hint ×18 · parser ×15</td><td class="svelte-12oyimm">3</td><td class="svelte-12oyimm">2026-04-17 → 2026-09-22</td><td class="svelte-12oyimm">not this ticket — no ticket of its own</td></tr><!--]--></tbody></table> <!--[--><!--[0--><p class="note svelte-12oyimm">5 reports read as a one-day move; filed under <code>parser</code> by tenant.</p><!--]--><!--[-1--><!--]--><!--]--><!----> <h2>Where each ticket stands</h2> <p>Engineering closed #4471 on 5 October 2026.</p> <ul><li><a href="https://github.com/kyleboon/mega-s01e03-kb/issues/1">parser</a>: <strong>fixed</strong>, <code>fix(dates): parse dd/mm for eu locales</code>. Closed.</li> <li><a href="https://github.com/kyleboon/mega-s01e03-kb/issues/2">hint</a>: <strong>won't fix</strong>, the <code>booking-v3</code> form is retired. Closed.</li> <li><a href="https://github.com/kyleboon/mega-s01e03-kb/issues/3">one-day</a>: <strong>open</strong>. Neither change touches how invite times convert between time zones
 or around daylight-saving changes.</li></ul> <!--[0--><p class="stamp svelte-1280m42">desk ref <b class="svelte-1280m42">DR-ZVGP-W68D</b></p><!--]--><!----><!----></main> <footer class="svelte-e2jw2j">Pages are written by people. Tables and charts are built from data at render time.</footer></div><!--]--><!--]--><!--]--><!----><!--]--><!--]--><!--]--><!----> <!--[-1--><!--]--><!--]-->
 			
 			<script>
 				{
-					__sveltekit_j441dp = {
+					__sveltekit_1mhxmsc = {
 						base: new URL("../../../..", location).pathname.slice(0, -1),
-						version: "1793329598181"
+						version: "1793329611319"
 					};
 
 					const element = document.currentScript.parentElement;
 
 					import("../../../../_app/immutable/entry/start.Blvqa2nb.js").then(async (kit) => {
-						kit.init(__sveltekit_j441dp);
-						const app = await import("../../../../_app/immutable/entry/app.8Aew757e.js");
+						kit.init(__sveltekit_1mhxmsc);
+						const app = await import("../../../../_app/immutable/entry/app.BseW8cCH.js");
 						kit.start(app, element, {
 							node_ids: [0, 5],
 							data: [null,null],

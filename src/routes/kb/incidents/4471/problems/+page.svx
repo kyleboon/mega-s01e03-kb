@@ -56,9 +56,9 @@ The incident page has the same counts, but shows `hint` and the one-day moves wi
 
 Engineering closed #4471 on 5 October 2026.
 
-- <a href={tickets.parser}>parser</a>: **fixed**, <code>fix(dates): parse dd/mm for eu locales</code>. Closed.
-- <a href={tickets.hint}>hint</a>: **won't fix**, the <code>booking-v3</code> form is retired. Closed.
-- <a href={tickets['one-day']}>one-day</a>: **open**. Neither change touches how invite times convert between time zones
+- <a href={tickets.parser}>parser</a>: <strong>fixed</strong>, <code>fix(dates): parse dd/mm for eu locales</code>. Closed.
+- <a href={tickets.hint}>hint</a>: <strong>won't fix</strong>, the <code>booking-v3</code> form is retired. Closed.
+- <a href={tickets['one-day']}>one-day</a>: <strong>open</strong>. Neither change touches how invite times convert between time zones
   or around daylight-saving changes.
 
 <RenderStamp {signature} />
