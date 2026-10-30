@@ -17,7 +17,7 @@
       .map(([k, v]) => `${k} ×${v}`)
       .join(' · ');
   const misTagged = $derived(
-    groups.reduce((n, g) => n + g.reports.filter((r) => g.problem !== 'one-day' && r.meta.intakeTag !== g.problem).length, 0),
+    groups.reduce((n, g) => n + (g.filedUnder ? 0 : g.reports.filter((r) => r.meta.intakeTag !== g.problem).length), 0),
   );
 </script>
 
@@ -35,7 +35,7 @@
     {#each groups as g (g.problem)}
       <tr>
         <td><code>{g.problem}</code></td>
-        <td><strong>{g.reports.length}</strong></td>
+        <td><strong>{g.reports.length}</strong>{#if g.oneDay}<sup>*</sup>{/if}{#if g.filedUnder}<sup>†</sup>{/if}</td>
         <td class="small">{list(g.taggedAs)}</td>
         <td class="small">{list(g.channels)}</td>
         <td class="small">{g.tenants.length}</td>
@@ -46,13 +46,19 @@
   </tbody>
 </table>
 
-<p class="note">{misTagged} of the parser and hint reports carry the other cause's intake tag.</p>
-
-{#each groups.filter((g) => g.problem === 'one-day') as g (g.problem)}
-  <ul class="small">
-    {#each g.reports as r (r.id)}<li><code>{r.id}</code> {r.tenant}, {r.channel}: “{r.body}”</li>{/each}
-  </ul>
+{#each groups as g (g.problem)}
+  {#if g.oneDay}
+    <p class="note">* includes {g.oneDay} reports the desk read as a one-day move; filed under <code>{g.problem}</code> by tenant.</p>
+  {/if}
+  {#if g.filedUnder}
+    <p class="note">† the same reports, filed under {list(g.filedUnder)}. Not added again to the total.</p>
+    <ul class="small">
+      {#each g.reports as r (r.id)}<li><code>{r.id}</code> {r.tenant}, {r.channel}: “{r.body}”</li>{/each}
+    </ul>
+  {/if}
 {/each}
+
+<p class="note">{misTagged} of the {merged.length} reports carry the other cause's intake tag.</p>
 
 <style>
   .sum { font-size: 1.1rem; }

@@ -36,18 +36,19 @@ the export at render time.
 2. **One-day move.** A report the desk read as a one-day move (`desk-notes.json`) is not a flip:
    the day and the month stay where they are and the date shifts by a day, or the same meeting
    lands on different days for people in different places. That points at time zones, not at
-   the parser.
+   the parser. It has its own ticket, and stays counted under the cause its tenant gives it, as
+   the desk counts.
 3. **hint.** A report that came in through the booking form of a tenant on `booking-v3`. That form
    prints `MM/DD/YYYY` under its date field and reads the date day first. People type what the
    hint says, so their dates come out flipped even with a fixed parser.
-4. **parser.** Every other report: a day-first tenant whose date the shared parser read month first.
+4. **parser.** Every other report from a day-first tenant (the one-day moves included): a date the shared parser read month first.
 
 The intake tag is not used. It is a guess from the reporter's browser, and it disagrees with the
 tenant for the count shown under the table.
 
 ## Against the incident page
 
-The incident page files the one-day moves under `parser` and shows `hint` with no ticket:
+The incident page has the same counts, but shows `hint` and the one-day moves with no ticket:
 
 <CauseTable ticket={4471} />
 
